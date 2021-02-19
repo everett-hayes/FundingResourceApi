@@ -1,1 +1,1 @@
-Rails.application.config.session_store :cookie_store, key: "_funding_api", domain: "myHerokuDomainHere"
+Rails.application.config.session_store :cookie_store, key: "_funding_api", domain: "localhost:3000"
