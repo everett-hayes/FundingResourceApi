@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source: MyString
+  funding_name: MyString
+  description: MyText
+  amount: MyString
+  contact_person: MyString
+  web: MyString
+  eligible: MyString
+  deadline: MyString
+  is_approved: false
+
+two:
+  source: MyString
+  funding_name: MyString
+  description: MyText
+  amount: MyString
+  contact_person: MyString
+  web: MyString
+  eligible: MyString
+  deadline: MyString
+  is_approved: false
