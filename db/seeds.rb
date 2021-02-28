@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#User.create!(email: 'hbainwala@gmail.com', password: 'asdfasdf', password_confirmation: 'asdfasdf', is_admin: true)
+User.create!(email: 'ev@grinnell.edu', password: 'asdfasdf', password_confirmation: 'asdfasdf', is_admin: true)
+User.create!(email: 'bainwala@grinnell.edu', password: 'asdfasdf', password_confirmation: 'asdfasdf', is_admin: false)
 
 Resource.create!(source: 'any',
     funding_name: 'any',
@@ -16,4 +17,14 @@ Resource.create!(source: 'any',
     web: 'any',
     eligible: 'any',
     deadline: 'any',
-    is_approved: 'any')
+    is_approved: true)
+
+    Resource.create!(source: 'any',
+    funding_name: 'any',
+    description: 'any',
+    amount: 'any',
+    contact_person: 'any',
+    web: 'any',
+    eligible: 'any',
+    deadline: 'any',
+    is_approved: false)
