@@ -6,7 +6,7 @@ class ResourceController < ApplicationController
     # used by admins to load inactive resources http://localhost:3000/resource?status=admin
     def index
         if params[:status] == "admin"
-            if @current_user.is_admin
+            if @current_user && @current_user.is_admin
                 @resources = Resource.where("is_approved = false")
                 render json: @resources, status: 200
             else
@@ -37,7 +37,7 @@ class ResourceController < ApplicationController
     end
 
     def update
-        if @current_user.is_admin
+        if @current_user && @current_user.is_admin
             @resource = Resource.find(params[:id])
             @resource.update(resource_params)
             render json: @resource, status: 200
@@ -47,7 +47,7 @@ class ResourceController < ApplicationController
     end
 
     def destroy
-        if @current_user.is_admin
+        if @current_user && @current_user.is_admin
             @resource = Resource.find(params[:id])
             @resource.delete()
             render json: {status: 200}
