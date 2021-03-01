@@ -2,8 +2,8 @@ class ResourceController < ApplicationController
     include CurrentUserConcern
 
     # GET request
-    # used by all users to load active resources http://localhost:3000/resource
-    # used by admins to load inactive resources http://localhost:3000/resource?status=admin
+    # used by all users to load active resources: baseurl/resource
+    # used by admins to load inactive resources: baseurl/resource?status=admin
     def index
         if params[:status] == "admin"
             if @current_user && @current_user.is_admin
@@ -19,14 +19,14 @@ class ResourceController < ApplicationController
     end
 
     # GET request
-    # used by all users to find a single resource http://localhost:3000/resource/1
+    # used by all users to find a single resource: baseurl/resource/<some_id>
     def show
         @resource = Resource.find(params[:id])
         render json: @resource, status: 200
     end
 
     # POST request
-    # used by logged in users to create new resources
+    # used by logged in users to create new resources: baseurl/resource
     def create
         if @current_user
             @resource = Resource.create(resource_params)
@@ -36,6 +36,8 @@ class ResourceController < ApplicationController
         end 
     end
 
+    # PUT request
+    # used by admin users to make activate submitted resources: baseurl/resource/<some_id>
     def update
         if @current_user && @current_user.is_admin
             @resource = Resource.find(params[:id])
@@ -46,6 +48,8 @@ class ResourceController < ApplicationController
         end 
     end
 
+    # DELETE request
+    # used by admin users to delete: baseurl/resource/<some_id>
     def destroy
         if @current_user && @current_user.is_admin
             @resource = Resource.find(params[:id])
@@ -56,16 +60,18 @@ class ResourceController < ApplicationController
         end
     end
 
+    # Specifies params required for a POST/PUT request
     private
         def resource_params
-            params.require(:resource).permit(:source, 
-            :funding_name,
-            :description,
-            :amount,
-            :contact_person,
-            :web,
-            :eligible,
-            :deadline,
-            :is_approved)
+            params.require(:resource).permit(
+                :source, 
+                :funding_name,
+                :description,
+                :amount,
+                :contact_person,
+                :web,
+                :eligible,
+                :deadline,
+                :is_approved)
         end
 end
