@@ -9,7 +9,7 @@
 User.create!(email: 'ev@grinnell.edu', password: 'asdfasdf', password_confirmation: 'asdfasdf', is_admin: true)
 User.create!(email: 'bainwala@grinnell.edu', password: 'asdfasdf', password_confirmation: 'asdfasdf', is_admin: false)
 
-Resource.create!(source: 'any',
+Resource.create!(source: 'everett',
     funding_name: 'any',
     description: 'any',
     amount: 'any',
@@ -19,7 +19,7 @@ Resource.create!(source: 'any',
     deadline: 'any',
     is_approved: true)
 
-    Resource.create!(source: 'any',
+    Resource.create!(source: 'himanshu',
     funding_name: 'any',
     description: 'any',
     amount: 'any',

@@ -1,21 +1,12 @@
 class ResourceController < ApplicationController
+    
     include CurrentUserConcern
 
     # GET request
     # used by all users to load active resources: baseurl/resource
-    # used by admins to load inactive resources: baseurl/resource?status=admin
     def index
-        if params[:status] == "admin"
-            if @current_user && @current_user.is_admin
-                @resources = Resource.where("is_approved = false")
-                render json: @resources, status: 200
-            else
-                render json: {status: 401}
-            end 
-        else
-            @resources = Resource.where("is_approved = true")
-            render json: @resources, status: 200
-        end
+        @resources = Resource.where("is_approved = true")
+        render json: @resources, status: 200
     end
 
     # GET request
@@ -32,32 +23,8 @@ class ResourceController < ApplicationController
             @resource = Resource.create(resource_params)
             render json: @resource, status: 200
         else
-            render json: {status: 401}
+            render json: {}, status: 401
         end 
-    end
-
-    # PUT request
-    # used by admin users to make activate submitted resources: baseurl/resource/<some_id>
-    def update
-        if @current_user && @current_user.is_admin
-            @resource = Resource.find(params[:id])
-            @resource.update(resource_params)
-            render json: @resource, status: 200
-        else
-            render json: {status: 401}
-        end 
-    end
-
-    # DELETE request
-    # used by admin users to delete: baseurl/resource/<some_id>
-    def destroy
-        if @current_user && @current_user.is_admin
-            @resource = Resource.find(params[:id])
-            @resource.delete()
-            render json: {status: 200}
-        else
-            render json: {status: 401}
-        end
     end
 
     # Specifies params required for a POST/PUT request
