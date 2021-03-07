@@ -1,7 +1,5 @@
-Rails.application.config.session_store :cookie_store, key: "_funding_api", same_site: :none, secure: true
-
-# if Rails.env == "production"
-#     Rails.application.config.session_store :cookie_store, key: "_funding_api", same_site: :none, secure: true
-# else
-#     Rails.application.config.session_store :cookie_store, key: "_funding_api", same_site: :none, secure: true
-# end
+if Rails.env == "production"
+    Rails.application.config.session_store :cookie_store, key: "_funding_api", same_site: :none, secure: true
+else
+    Rails.application.config.session_store :cookie_store, key: "_funding_api"
+end
