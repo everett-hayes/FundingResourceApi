@@ -27,6 +27,7 @@ class Admin::ResourceController < ApplicationController
         render json: {status: 200}
     end
 
+    # this method runs before all of the baseurl/admin endpoints, see the before_action
     private
         def check_admin
             if not (@current_user && @current_user.is_admin)
