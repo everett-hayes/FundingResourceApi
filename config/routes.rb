@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :resource
   end
 
-  # baseurl/admin
+  # baseurl/resource
   resources :resource
 
   # baseurl/registrations
