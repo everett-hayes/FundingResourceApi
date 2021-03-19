@@ -59,7 +59,7 @@ Lets test this. Make a DELETE request to `http://127.0.0.1:3001/logout` (this en
 }
 ```
 
-Hopefully this helped you to understand the API :)
+Hopefully this helped you to understand the API :). To get a better idea of how to format query URLs check our controllers. Each method has its URL documented above and also check out the routes.rb file.
 
 ## Notes on Auth ##
 
