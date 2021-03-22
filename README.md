@@ -63,12 +63,12 @@ Hopefully this helped you to understand the API :). To get a better idea of how 
 
 ## Notes on Auth ##
 
-A couple of notes, the most important authentication files are `config/initializers/cors.rb` and `config/initializers/sessions_store.rb` . The cors.rb file controls what websites are allowed to make requests to our API. The sessions_store.rb controls how cookies are created. Be careful when changing these files, we had to fine tune them to get cookies working.
+A couple of notes, the most important authentication files are `config/initializers/cors.rb` and `config/initializers/sessions_store.rb` . The cors.rb file controls what websites are allowed to make requests to our API. The sessions_store.rb controls how cookies are created. Be careful when changing these files, we had to fine tune them to get cookies working. 
 
 ## Future Tasks ##
 
 - Likely admins will want to 'knight' other admins. A well placed update method should handle that.
-- Authentication is a crazy beast to tackle. But it can be done much better than our current system which uses Rails Sessions. If looking to improve it maybe try a gem such as devise? 
+- Authentication is a crazy beast to tackle. But it can be done much better than our current system which uses Rails Sessions. If looking to improve it maybe try a gem such as devise? Or there are others ways to bundle React and Rails that are more auth friendly.
 - Our backend team would often respond to the needs of the frontend team. They want to be able to get X data. We find a way to get and format that data. Likely as the frontend team progresses more backend needs will become apparent.
 
 ## Musings ##
