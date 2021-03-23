@@ -13,7 +13,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
     # Here we tell CORS that the frontend on heroku is allowed to communicate with our API
     allow do
-        origins "https://testy1123.herokuapp.com"
+        origins "https://cls-funding-resources.herokuapp.com"
         resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
     end
 
