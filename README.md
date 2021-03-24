@@ -8,7 +8,9 @@ I'm going to give a broad list of steps.
 1. Clone the app from git
     - something like ```git clone <url of repo here>```
 2. Bundle your gems
-    - make sure your ruby, rails, and postgres version match
+    - make sure your ruby, rails, and postgres version match the versions specified in the GemFile
+    - we use postgresql in dev, test, and production to make local development more closely match Heroku
+    - this is likely the hardest part (especially if on a windows computer)
 3. Turn on postgresql
 
 If on a mac I recommend this UI for postgres. (It makes things much easier) `https://postgresapp.com/documentation/gui-tools.html`
@@ -68,7 +70,7 @@ A couple of notes, the most important authentication files are `config/initializ
 ## Future Tasks ##
 
 - Likely admins will want to 'knight' other admins. A well placed update method should handle that.
-- Authentication is a crazy beast to tackle. But it can be done much better than our current system which uses Rails Sessions. If looking to improve it maybe try a gem such as devise? Or there are others ways to bundle React and Rails that are more auth friendly.
+- Authentication is a crazy beast to tackle. But it can be done much better than our current system which uses Rails Sessions. If looking to improve it maybe try a gem such as devise? Or there are others ways to bundle React and Rails that are more auth friendly. Or even jump down the rabbit hole of JWT token authentication. Or just iron out how to best cache our cookie.
 - Our backend team would often respond to the needs of the frontend team. They want to be able to get X data. We find a way to get and format that data. Likely as the frontend team progresses more backend needs will become apparent.
 
 ## Musings ##
